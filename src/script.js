@@ -16,7 +16,8 @@ function onFormSubmit(event) {
     .then((hits)=>{console.log(hits)})
 };
 
-function createMarkup(articles) {  
-    const markup = articlesTpl(articles);
-    articlesContainerRef.insertAdjacentHTML('beforeend', markup)
+function createMarkup(hits) {  
+    const markup = hits.map(({previewURL}) => `<li><img src="${previewURL}" alt=""></li>`).join("");
+    console.log(markup);
+    list.insertAdjacentHTML('beforeend', markup)
 }
